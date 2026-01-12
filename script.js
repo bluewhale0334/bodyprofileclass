@@ -96,17 +96,27 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================
-// 링크 설정 (나중에 실제 링크로 교체 가능)
+// 링크 설정 (실제 링크로 교체 가능)
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
+    // 링크 설정 (여기서 쉽게 수정 가능)
+    const links = {
+        trainerInstagram: 'https://www.instagram.com/cye_jin',
+        studioInstagram: '', // 런웨이 스튜디오 인스타그램 링크 입력
+        smartplace: '', // 스마트 플레이스 링크 입력
+        blog: '', // 블로그 링크 입력
+        kakao: '', // 카카오톡 채널 링크 입력
+        naverReservation: '' // 네이버 예약 링크 입력
+    };
+    
     // 트레이너 인스타그램 링크
     const trainerInstaBtn = document.getElementById('trainer-instagram-btn');
     if (trainerInstaBtn) {
         trainerInstaBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            // 실제 인스타그램 링크로 교체 필요
-            // window.open('https://instagram.com/트레이너계정', '_blank');
-            alert('트레이너 인스타그램 링크를 설정해주세요.');
+            if (links.trainerInstagram) {
+                window.open(links.trainerInstagram, '_blank');
+            }
         });
     }
     
@@ -115,9 +125,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (studioInstaBtn) {
         studioInstaBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            // 실제 인스타그램 링크로 교체 필요
-            // window.open('https://instagram.com/런웨이스튜디오계정', '_blank');
-            alert('런웨이 스튜디오 인스타그램 링크를 설정해주세요.');
+            if (links.studioInstagram) {
+                window.open(links.studioInstagram, '_blank');
+            } else {
+                alert('런웨이 스튜디오 인스타그램 링크를 설정해주세요.');
+            }
         });
     }
     
@@ -126,9 +138,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (smartplaceBtn) {
         smartplaceBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            // 실제 스마트 플레이스 링크로 교체 필요
-            // window.open('스마트플레이스링크', '_blank');
-            alert('스마트 플레이스 링크를 설정해주세요.');
+            if (links.smartplace) {
+                window.open(links.smartplace, '_blank');
+            } else {
+                alert('스마트 플레이스 링크를 설정해주세요.');
+            }
         });
     }
     
@@ -136,9 +150,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (blogBtn) {
         blogBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            // 실제 블로그 링크로 교체 필요
-            // window.open('블로그링크', '_blank');
-            alert('블로그 링크를 설정해주세요.');
+            if (links.blog) {
+                window.open(links.blog, '_blank');
+            } else {
+                alert('블로그 링크를 설정해주세요.');
+            }
         });
     }
     
@@ -146,9 +162,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (kakaoBtn) {
         kakaoBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            // 실제 카카오톡 채널 링크로 교체 필요
-            // window.open('카카오톡채널링크', '_blank');
-            alert('카카오톡 채널 링크를 설정해주세요.');
+            if (links.kakao) {
+                window.open(links.kakao, '_blank');
+            } else {
+                alert('카카오톡 채널 링크를 설정해주세요.');
+            }
         });
     }
     
@@ -157,9 +175,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (naverReservationBtn) {
         naverReservationBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            // 실제 네이버 예약 링크로 교체 필요
-            // window.open('네이버예약링크', '_blank');
-            alert('네이버 예약 링크를 설정해주세요.');
+            if (links.naverReservation) {
+                window.open(links.naverReservation, '_blank');
+            } else {
+                alert('네이버 예약 링크를 설정해주세요.');
+            }
         });
     }
 });
