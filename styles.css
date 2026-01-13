@@ -687,7 +687,7 @@ section {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: blur(20px) brightness(1.8);
-    transform: translateY(80px) scale(1.1);
+    transform: translateY(60px) scale(1.1);
     pointer-events: none;
     z-index: -1;
     animation: merit-float-shadow 3s ease-in-out infinite;
@@ -697,12 +697,12 @@ section {
 @keyframes merit-float-shadow {
     0%, 100% {
         background-position: 0% 50%;
-        transform: translateY(80px) scale(0.8);
+        transform: translateY(60px) scale(0.8);
         opacity: 0.8;
     }
     50% {
         background-position: 100% 50%;
-        transform: translateY(80px) scale(0.85);
+        transform: translateY(60px) scale(0.85);
         opacity: 1.0;
     }
 }
