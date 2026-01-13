@@ -865,7 +865,7 @@ section {
 /* 작은 모바일 (400px 이하) - 폰트 크기 30% 축소 */
 @media (max-width: 400px) {
     html {
-        font-size: 85%;
+        font-size: 70%;
     }
 }
 
