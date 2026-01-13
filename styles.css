@@ -879,6 +879,15 @@ section {
     .gallery-container {
         max-width: 640px;
     }
+    
+    .trust-badge {
+        padding: calc(var(--spacing-md) * 1.0) calc(var(--spacing-lg) * 1.0);
+        font-size: calc(1.1rem * 0.8);
+    }
+    
+    .trust-badge i {
+        font-size: calc(1.5rem * 0.8);
+    }
 }
 
 @media (min-width: 1024px) {
