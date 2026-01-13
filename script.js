@@ -101,12 +101,12 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     // 링크 설정 (여기서 쉽게 수정 가능)
     const links = {
-        trainerInstagram: 'https://www.instagram.com/cye_jin',
-        studioInstagram: '', // 런웨이 스튜디오 인스타그램 링크 입력
-        smartplace: '', // 스마트 플레이스 링크 입력
-        blog: '', // 블로그 링크 입력
-        kakao: '', // 카카오톡 채널 링크 입력
-        naverReservation: '' // 네이버 예약 링크 입력
+      trainerInstagram: "https://www.instagram.com/cye_jin",
+      studioInstagram: "https://www.instagram.com/runway_studio_official", // 런웨이 스튜디오 인스타그램 링크 입력
+      smartplace: "https://naver.me/5aIg1nZb", // 스마트 플레이스 링크 입력
+      blog: "", // 블로그 링크 입력
+      kakao: "http://pf.kakao.com/_JxmTuxb/chat", // 카카오톡 채널 링크 입력
+      naverReservation: "", // 네이버 예약 링크 입력
     };
     
     // 트레이너 인스타그램 링크
@@ -204,6 +204,93 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});
+
+// ============================================
+// 프로그램 카드 자동 슬라이드
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const programSlider = document.getElementById('program-slider');
+    if (!programSlider) return;
+    
+    const cards = programSlider.querySelectorAll('.program-card');
+    if (cards.length === 0) return;
+    
+    const gap = 16; // var(--spacing-md) = 1rem = 16px
+    let currentIndex = 0;
+    
+    function getCardWidth() {
+        return cards[0].offsetWidth;
+    }
+    
+    function moveSlider() {
+        const cardWidth = getCardWidth();
+        const cardWidthWithGap = cardWidth + gap;
+        
+        currentIndex++;
+        
+        // 마지막 카드까지 이동했으면 처음으로
+        if (currentIndex >= cards.length) {
+            currentIndex = 0;
+            // 트랜지션 없이 바로 처음으로 이동
+            programSlider.style.transition = 'none';
+            programSlider.style.transform = `translateX(0)`;
+            
+            // 다음 프레임에서 트랜지션 복원
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    programSlider.style.transition = 'transform 0.5s ease';
+                });
+            });
+        } else {
+            programSlider.style.transition = 'transform 0.5s ease';
+            programSlider.style.transform = `translateX(-${currentIndex * cardWidthWithGap}px)`;
+        }
+    }
+    
+    // 1초마다 슬라이드 이동
+    setInterval(moveSlider, 1000);
+});
+
+// ============================================
+// 모집 마감 실시간 카운트다운
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const countdownTimer = document.getElementById('countdown-timer');
+    if (!countdownTimer) return;
+    
+    // 모집 마감일 설정 (2026년 1월 19일 23:59:59)
+    // 필요시 날짜 수정 가능
+    const deadline = new Date('2026-01-19T23:59:59').getTime();
+    
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = deadline - now;
+        
+        // 시간이 지났으면 00:00:00 표시
+        if (distance < 0) {
+            countdownTimer.textContent = '00:00:00';
+            return;
+        }
+        
+        // 시간, 분, 초 계산
+        const hours = Math.floor(distance / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // 두 자리수로 포맷팅 (HH:MM:SS)
+        const formattedHours = String(hours).padStart(2, '0');
+        const formattedMinutes = String(minutes).padStart(2, '0');
+        const formattedSeconds = String(seconds).padStart(2, '0');
+        
+        countdownTimer.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+    }
+    
+    // 초기 실행
+    updateCountdown();
+    
+    // 1초마다 업데이트
+    setInterval(updateCountdown, 1000);
 });
 
 // ============================================

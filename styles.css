@@ -8,17 +8,17 @@
 }
 
 :root {
-    /* 색상 팔레트 - 여성 타겟, 프리미엄하지만 부담 없는 느낌 */
-    --color-primary: #FF6B9D;        /* 핑크 - 메인 CTA */
-    --color-primary-dark: #E85A8A;   /* 다크 핑크 */
-    --color-secondary: #C8A8E9;      /* 라벤더 - 보조 요소 */
-    --color-accent: #FFB6C1;         /* 라이트 핑크 */
-    --color-text: #2C2C2C;           /* 메인 텍스트 */
-    --color-text-light: #666666;     /* 서브 텍스트 */
-    --color-bg: #FFFFFF;             /* 배경 */
-    --color-bg-light: #FFF5F8;       /* 연한 배경 */
-    --color-bg-section: #FEF9FB;     /* 섹션 배경 */
-    --color-border: #E8E8E8;         /* 테두리 */
+    /* 색상 팔레트 - 검정/흰색 테마 */
+    --color-primary: #000000;        /* 검정 - 메인 CTA */
+    --color-primary-dark: #000000;   /* 검정 */
+    --color-secondary: #000000;      /* 검정 - 악센트 */
+    --color-accent: #FFFFFF;         /* 흰색 */
+    --color-text: #000000;           /* 메인 텍스트 - 검정 */
+    --color-text-light: #666666;     /* 서브 텍스트 - 회색 */
+    --color-bg: #FFFFFF;             /* 배경 - 흰색 */
+    --color-bg-light: #F5F5F5;       /* 연한 회색 배경 */
+    --color-bg-section: #FAFAFA;      /* 섹션 배경 - 연한 회색 */
+    --color-border: #CCCCCC;         /* 테두리 - 회색 */
     
     /* 타이포그래피 */
     --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -68,7 +68,7 @@ section {
    1. 히어로 섹션
    ============================================ */
 .hero-section {
-    background: linear-gradient(135deg, #FFF5F8 0%, #FFE5EC 100%);
+    background: linear-gradient(135deg, #000000 0%, #333333 50%, #666666 100%);
     padding: var(--spacing-xxl) 0;
     text-align: center;
     min-height: 70vh;
@@ -82,15 +82,27 @@ section {
     font-weight: 800;
     line-height: 1.5;
     margin-bottom: var(--spacing-lg);
-    color: var(--color-text);
+    color: #FFFFFF;
 }
 
 .hero-main-copy .highlight {
     display: inline-block;
-    background: linear-gradient(120deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: gold-shimmer 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+}
+
+@keyframes gold-shimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .hero-sub-info {
@@ -99,21 +111,28 @@ section {
 
 .gym-name {
     font-size: 1.1rem;
-    color: var(--color-text-light);
+    background: linear-gradient(135deg, #E0E0E0 0%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: var(--spacing-xs);
 }
 
 .trainer-name {
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--color-primary-dark);
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
 }
 
 .hero-core-message {
-    background: var(--color-bg);
+    background: rgba(255, 255, 255, 0.95);
     padding: var(--spacing-md) var(--spacing-lg);
     border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.15);
+    box-shadow: 0 4px 20px rgba(10, 10, 10, 0.3);
     display: inline-block;
     margin-top: var(--spacing-lg);
 }
@@ -125,6 +144,17 @@ section {
     line-height: 1.6;
 }
 
+.hero-core-message .azhighlight {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+    animation: gold-shimmer 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.5));
+    display: inline-block;
+}
 /* ============================================
    2. 공감 문제 제기 섹션
    ============================================ */
@@ -205,15 +235,17 @@ section {
 
 .solution-summary {
     text-align: center;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: calc(1.2rem + 3px);
+    font-weight: 700;
     color: var(--color-text);
-    padding: var(--spacing-md);
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-    color: white;
-    border-radius: 12px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: var(--color-bg-section);
+    border-left: 4px solid var(--color-primary);
+    border-right: 4px solid var(--color-primary);
+    border-radius: 4px;
     max-width: 600px;
     margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(10, 10, 10, 0.1);
 }
 
 /* ============================================
@@ -234,7 +266,7 @@ section {
 }
 
 .trust-badge {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: white;
     padding: var(--spacing-md) var(--spacing-lg);
     border-radius: 15px;
@@ -244,7 +276,7 @@ section {
     gap: var(--spacing-sm);
     font-size: 1.1rem;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+    box-shadow: 0 4px 15px rgba(10, 10, 10, 0.3);
 }
 
 .trust-badge i {
@@ -292,29 +324,40 @@ section {
 }
 
 .price-new {
-    padding: var(--spacing-lg);
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-    border-radius: 20px;
+    padding: var(--spacing-xl) var(--spacing-xxl);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 24px;
     color: white;
-    box-shadow: 0 6px 25px rgba(255, 107, 157, 0.4);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .price-new .price-label {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
 }
 
 .price-new .price-amount {
-    font-size: 2.5rem;
+    font-size: 4rem;
+    font-weight: 900;
     color: white;
     text-decoration: none;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .price-tax {
     display: block;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.9);
-    margin-top: var(--spacing-xs);
+    margin-top: var(--spacing-sm);
+    font-weight: 500;
 }
 
 .limited-info {
@@ -378,25 +421,11 @@ section {
     opacity: 1;
 }
 
-.gallery-placeholder {
+.gallery-slide img {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-bg-section) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-light);
-}
-
-.gallery-placeholder i {
-    font-size: 4rem;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
-}
-
-.gallery-placeholder p {
-    font-size: 1.1rem;
+    object-fit: cover;
+    display: block;
 }
 
 .gallery-controls {
@@ -420,7 +449,7 @@ section {
     justify-content: center;
     font-size: 1.2rem;
     transition: var(--transition);
-    box-shadow: 0 2px 10px rgba(255, 107, 157, 0.3);
+    box-shadow: 0 2px 10px rgba(10, 10, 10, 0.3);
 }
 
 .gallery-btn:hover {
@@ -455,12 +484,18 @@ section {
     padding: var(--spacing-xl) 0;
 }
 
-.program-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-md);
+.program-slider-wrapper {
+    overflow: hidden;
     max-width: 1000px;
     margin: 0 auto;
+    position: relative;
+}
+
+.program-grid {
+    display: flex;
+    gap: var(--spacing-md);
+    transition: transform 0.5s ease;
+    will-change: transform;
 }
 
 .program-card {
@@ -470,18 +505,20 @@ section {
     text-align: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
+    min-width: 280px;
+    flex-shrink: 0;
 }
 
 .program-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.2);
+    box-shadow: 0 6px 20px rgba(10, 10, 10, 0.2);
 }
 
 .program-icon {
     width: 70px;
     height: 70px;
     margin: 0 auto var(--spacing-md);
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -501,7 +538,7 @@ section {
    8. 핵심 메리트 강조 섹션
    ============================================ */
 .merit-section {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     padding: var(--spacing-xxl) 0;
     text-align: center;
 }
@@ -519,20 +556,91 @@ section {
 }
 
 .merit-highlight {
-    background: white;
-    padding: var(--spacing-lg) var(--spacing-xl);
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     display: inline-block;
 }
 
 .merit-amount {
-    font-size: 3rem;
-    font-weight: 800;
-    background: linear-gradient(120deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    font-size: 4.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: merit-float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+    display: inline-block;
+}
+
+@keyframes merit-float {
+    0%, 100% {
+        background-position: 0% 50%;
+        transform: translateY(0px);
+    }
+    50% {
+        background-position: 100% 50%;
+        transform: translateY(-15px);
+    }
+}
+
+.reservation-status {
+    margin-top: var(--spacing-xl);
+}
+
+.profile-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-md);
+}
+
+.profile-item {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-item i {
+    font-size: 3.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition);
+}
+
+.profile-item.reserved i {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.reserved-badge {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 24px;
+    height: 24px;
+    background: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reserved-badge i {
+    font-size: 0.75rem;
+    color: white;
+}
+
+.remaining-seats {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    margin-top: var(--spacing-md);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* ============================================
@@ -575,14 +683,14 @@ section {
 .btn-primary {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: white;
-    box-shadow: 0 6px 25px rgba(255, 107, 157, 0.4);
+    box-shadow: 0 6px 25px rgba(10, 10, 10, 0.4);
     font-size: 1.2rem;
     padding: var(--spacing-md) var(--spacing-xl);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 107, 157, 0.5);
+    box-shadow: 0 8px 30px rgba(10, 10, 10, 0.5);
 }
 
 .btn-secondary {
@@ -633,10 +741,6 @@ section {
         min-height: 80vh;
     }
     
-    .program-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
     .cta-buttons {
         flex-direction: row;
         flex-wrap: wrap;
@@ -664,10 +768,6 @@ section {
         font-size: 2.5rem;
     }
     
-    .program-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
     .gallery-wrapper {
         height: 500px;
     }
@@ -677,7 +777,7 @@ section {
     }
     
     .merit-amount {
-        font-size: 4rem;
+        font-size: 5.5rem;
     }
 }
 
@@ -693,6 +793,21 @@ section {
     }
 }
 
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .fade-in {
-    animation: fadeInUp 0.6s ease-out;
+    animation: fadeInUp 1s ease-out;
+}
+
+.problem-list li.fade-in {
+    animation: fadeInRight 1s ease-out;
 }
