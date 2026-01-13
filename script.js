@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
       trainerInstagram: "https://www.instagram.com/cye_jin",
       studioInstagram: "https://www.instagram.com/runway_studio_official", // 런웨이 스튜디오 인스타그램 링크 입력
       smartplace: "https://naver.me/5aIg1nZb", // 스마트 플레이스 링크 입력
-      blog: "", // 블로그 링크 입력
+      blog: "https://blog.naver.com/selfmadegym2/224145079021", // 블로그 링크 입력
       kakao: "http://pf.kakao.com/_JxmTuxb/chat", // 카카오톡 채널 링크 입력
       naverReservation:
         "https://m.booking.naver.com/booking/13/bizes/618744/items/7355087?area=pll&lang=ko&startDate=2026-01-13&theme=place", // 네이버 예약 링크 입력
