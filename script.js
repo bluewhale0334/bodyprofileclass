@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
       blog: "", // 블로그 링크 입력
       kakao: "http://pf.kakao.com/_JxmTuxb/chat", // 카카오톡 채널 링크 입력
       naverReservation:
-        "https://m.booking.naver.com/booking/13/bizes/618744/items/4192374?area=pll&lang=ko&startDate=2026-01-19&theme=place", // 네이버 예약 링크 입력
+        "https://m.booking.naver.com/booking/13/bizes/618744/items/7355087?area=pll&lang=ko&startDate=2026-01-13&theme=place", // 네이버 예약 링크 입력
     };
     
     // 트레이너 인스타그램 링크
