@@ -3,7 +3,7 @@
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.gallery-slide');
-    const dots = document.querySelectorAll('.dot');
+    const progressBar = document.getElementById('gallery-progress-bar');
     const prevBtn = document.getElementById('gallery-prev');
     const nextBtn = document.getElementById('gallery-next');
     let currentSlide = 0;
@@ -12,14 +12,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function showSlide(index) {
         // 모든 슬라이드 숨기기
         slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
         
         // 현재 슬라이드 표시
         if (slides[index]) {
             slides[index].classList.add('active');
         }
-        if (dots[index]) {
-            dots[index].classList.add('active');
+        
+        // 진행 바 업데이트
+        if (progressBar && slides.length > 0) {
+            const progress = ((index + 1) / slides.length) * 100;
+            progressBar.style.width = progress + '%';
         }
         
         currentSlide = index;
@@ -46,10 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
         prevBtn.addEventListener('click', prevSlide);
     }
     
-    // 도트 클릭 이벤트
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => showSlide(index));
-    });
+    // 초기 진행 바 설정
+    showSlide(0);
     
     // 자동 슬라이드 (선택사항 - 5초마다)
     let autoSlideInterval = setInterval(nextSlide, 5000);
@@ -133,6 +133,13 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(priceComparison);
     }
     
+    // 가격 상세 내역
+    const priceBreakdown = document.querySelector('.price-breakdown');
+    if (priceBreakdown) {
+        priceBreakdown.classList.add('scroll-animate');
+        observer.observe(priceBreakdown);
+    }
+    
     // 제한 정보
     const infoItems = document.querySelectorAll('.info-item');
     infoItems.forEach(item => {
@@ -173,7 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
       smartplace: "https://naver.me/5aIg1nZb", // 스마트 플레이스 링크 입력
       blog: "", // 블로그 링크 입력
       kakao: "http://pf.kakao.com/_JxmTuxb/chat", // 카카오톡 채널 링크 입력
-      naverReservation: "", // 네이버 예약 링크 입력
+      naverReservation:
+        "https://m.booking.naver.com/booking/13/bizes/618744/items/4192374?area=pll&lang=ko&startDate=2026-01-19&theme=place", // 네이버 예약 링크 입력
     };
     
     // 트레이너 인스타그램 링크

@@ -360,6 +360,106 @@ section {
     font-weight: 500;
 }
 
+.price-breakdown {
+    max-width: 600px;
+    margin: var(--spacing-xl) auto var(--spacing-lg);
+    background: var(--color-bg);
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.price-breakdown-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.price-breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.price-breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    background: var(--color-bg-section);
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.price-breakdown-item:hover {
+    background: var(--color-bg-light);
+}
+
+.price-breakdown-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex: 1;
+}
+
+.price-breakdown-left i {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.price-breakdown-label {
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.price-breakdown-right {
+    display: flex;
+    align-items: center;
+}
+
+.price-breakdown-amount {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.price-breakdown-total {
+    margin-top: var(--spacing-md);
+}
+
+.price-breakdown-total-line {
+    height: 1px;
+    background: var(--color-border);
+    margin-bottom: var(--spacing-md);
+}
+
+.price-breakdown-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    background: var(--color-bg-section);
+    border-radius: 12px;
+}
+
+.price-breakdown-total-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.price-breakdown-total-amount {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-primary);
+}
+
 .limited-info {
     max-width: 500px;
     margin: 0 auto;
@@ -457,23 +557,21 @@ section {
     transform: scale(1.1);
 }
 
-.gallery-dots {
-    display: flex;
-    gap: var(--spacing-xs);
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
+.gallery-progress {
+    width: 200px;
+    height: 4px;
     background: var(--color-border);
-    cursor: pointer;
-    transition: var(--transition);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
 }
 
-.dot.active {
+.gallery-progress-bar {
+    height: 100%;
     background: var(--color-primary);
-    transform: scale(1.2);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    width: 0%;
 }
 
 /* ============================================
@@ -742,9 +840,7 @@ section {
     }
     
     .cta-buttons {
-        flex-direction: row;
-        flex-wrap: wrap;
-        max-width: 600px;
+        max-width: 400px;
     }
     
     .trust-card {
@@ -755,6 +851,14 @@ section {
     .limited-info {
         flex-direction: row;
         justify-content: center;
+    }
+    
+    .price-breakdown {
+        padding: var(--spacing-xl);
+    }
+    
+    .price-breakdown-title {
+        font-size: 1.5rem;
     }
 }
 
@@ -769,7 +873,14 @@ section {
     }
     
     .gallery-wrapper {
-        height: 500px;
+        aspect-ratio: 3 / 4;
+        height: auto;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    
+    .gallery-container {
+        max-width: 640px;
     }
     
     .merit-title {
@@ -778,6 +889,11 @@ section {
     
     .merit-amount {
         font-size: 5.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        max-width: 400px;
     }
 }
 
@@ -815,6 +931,31 @@ section {
     opacity: 0;
     transform: translateX(-30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 문제 리스트 아이템 순차 애니메이션 딜레이 */
+.problem-list li.scroll-animate-right {
+    transition-delay: 0s;
+}
+
+.problem-list li.scroll-animate-right:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.problem-list li.scroll-animate-right:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.problem-list li.scroll-animate-right:nth-child(3) {
+    transition-delay: 0.8s;
+}
+
+.problem-list li.scroll-animate-right:nth-child(4) {
+    transition-delay: 1.2s;
+}
+
+.problem-list li.scroll-animate-right:nth-child(5) {
+    transition-delay: 1.6s;
 }
 
 /* 애니메이션 실행 시 - transition이 적용된 상태에서 값이 변경됨 */
