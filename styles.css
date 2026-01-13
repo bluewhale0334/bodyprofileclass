@@ -804,10 +804,28 @@ section {
     }
 }
 
-.fade-in {
-    animation: fadeInUp 1s ease-out;
+/* 초기 상태: 요소를 숨김 */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.problem-list li.fade-in {
-    animation: fadeInRight 1s ease-out;
+.scroll-animate-right {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 애니메이션 실행 시 - transition이 적용된 상태에서 값이 변경됨 */
+.scroll-animate.fade-in,
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.scroll-animate-right.fade-in-right,
+.fade-in-right {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
 }

@@ -79,19 +79,86 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
+                // 문제 리스트 아이템은 오른쪽에서 나타남
+                if (entry.target.classList.contains('problem-list-item')) {
+                    entry.target.classList.add('fade-in-right');
+                } else {
+                    // 나머지는 위에서 나타남
+                    entry.target.classList.add('fade-in');
+                }
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    // 관찰할 요소들
-    const animateElements = document.querySelectorAll(
-        'section, .program-card, .problem-list li, .target-item, .trust-badge'
-    );
+    // 관찰할 요소들 - 섹션
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.classList.add('scroll-animate');
+        observer.observe(section);
+    });
     
-    animateElements.forEach(el => {
-        observer.observe(el);
+    // 프로그램 카드
+    const programCards = document.querySelectorAll('.program-card');
+    programCards.forEach(card => {
+        card.classList.add('scroll-animate');
+        observer.observe(card);
+    });
+    
+    // 문제 리스트 아이템 (오른쪽에서 나타남)
+    const problemItems = document.querySelectorAll('.problem-list li');
+    problemItems.forEach(item => {
+        item.classList.add('scroll-animate-right', 'problem-list-item');
+        observer.observe(item);
+    });
+    
+    // 타겟 아이템
+    const targetItems = document.querySelectorAll('.target-item');
+    targetItems.forEach(item => {
+        item.classList.add('scroll-animate');
+        observer.observe(item);
+    });
+    
+    // 신뢰 배지
+    const trustBadges = document.querySelectorAll('.trust-badge');
+    trustBadges.forEach(badge => {
+        badge.classList.add('scroll-animate');
+        observer.observe(badge);
+    });
+    
+    // 가격 비교 섹션
+    const priceComparison = document.querySelector('.price-comparison');
+    if (priceComparison) {
+        priceComparison.classList.add('scroll-animate');
+        observer.observe(priceComparison);
+    }
+    
+    // 제한 정보
+    const infoItems = document.querySelectorAll('.info-item');
+    infoItems.forEach(item => {
+        item.classList.add('scroll-animate');
+        observer.observe(item);
+    });
+    
+    // 갤러리 컨테이너
+    const galleryContainer = document.querySelector('.gallery-container');
+    if (galleryContainer) {
+        galleryContainer.classList.add('scroll-animate');
+        observer.observe(galleryContainer);
+    }
+    
+    // 메리트 박스
+    const meritBox = document.querySelector('.merit-box');
+    if (meritBox) {
+        meritBox.classList.add('scroll-animate');
+        observer.observe(meritBox);
+    }
+    
+    // CTA 섹션의 버튼들
+    const ctaButtons = document.querySelectorAll('.cta-buttons .btn, .btn-main-cta');
+    ctaButtons.forEach(btn => {
+        btn.classList.add('scroll-animate');
+        observer.observe(btn);
     });
 });
 
