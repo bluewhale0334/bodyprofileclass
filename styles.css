@@ -501,7 +501,7 @@ section {
 .gallery-wrapper {
     position: relative;
     width: 100%;
-    height: 400px;
+    aspect-ratio: 3 / 4;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -828,7 +828,7 @@ section {
 /* 작은 모바일 (400px 이하) - 폰트 크기 30% 축소 */
 @media (max-width: 400px) {
     html {
-        font-size: 70%;
+        font-size: 85%;
     }
 }
 
@@ -869,7 +869,18 @@ section {
     }
 }
 
-/* 데스크톱 (1024px 이상) */
+/* 데스크톱 (700px 이상) */
+@media (min-width: 700px) {
+    .gallery-wrapper {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    
+    .gallery-container {
+        max-width: 640px;
+    }
+}
+
 @media (min-width: 1024px) {
     .hero-main-copy {
         font-size: 2.5rem;
@@ -877,17 +888,6 @@ section {
     
     .section-title {
         font-size: 2.5rem;
-    }
-    
-    .gallery-wrapper {
-        aspect-ratio: 3 / 4;
-        height: auto;
-        max-width: 480px;
-        margin: 0 auto;
-    }
-    
-    .gallery-container {
-        max-width: 640px;
     }
     
     .merit-title {
