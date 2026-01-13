@@ -268,7 +268,7 @@ section {
 .trust-badge {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: white;
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: var(--spacing-md);
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -277,6 +277,9 @@ section {
     font-size: 1.1rem;
     font-weight: 600;
     box-shadow: 0 4px 15px rgba(10, 10, 10, 0.3);
+    width: fit-content;
+    min-width: 200px;
+    margin: 0 auto;
 }
 
 .trust-badge i {
@@ -825,6 +828,13 @@ section {
    반응형 디자인 (모바일 우선)
    ============================================ */
 
+/* 작은 모바일 (400px 이하) - 폰트 크기 30% 축소 */
+@media (max-width: 400px) {
+    html {
+        font-size: 70%;
+    }
+}
+
 /* 태블릿 (768px 이상) */
 @media (min-width: 768px) {
     .section-title {
@@ -843,10 +853,6 @@ section {
         max-width: 400px;
     }
     
-    .trust-card {
-        flex-direction: row;
-        justify-content: center;
-    }
     
     .limited-info {
         flex-direction: row;
