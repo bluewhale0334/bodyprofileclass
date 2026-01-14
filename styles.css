@@ -862,8 +862,15 @@ section {
    반응형 디자인 (모바일 우선)
    ============================================ */
 
+/* 매우 작은 모바일 (300px 이하) - 198만원 폰트 크기 50% 축소 */
+@media (max-width: 300px) {
+    .price-new .price-amount {
+        font-size: 3rem; /* 4rem의 50% */
+    }
+}
+
 /* 작은 모바일 (400px 이하) - 폰트 크기 30% 축소 */
-@media (max-width: 400px) {
+@media (max-width: 425px) {
     html {
         font-size: 70%;
     }
@@ -1022,4 +1029,161 @@ section {
 .fade-in-right {
     opacity: 1 !important;
     transform: translateX(0) !important;
+}
+
+/* ============================================
+   iOS Safari 텍스트 자동 확대 방지
+   ============================================ */
+/* iOS Safari 전용: 텍스트 자동 확대 방지 및 고정 크기 적용 */
+@supports (-webkit-touch-callout: none) {
+    /* 전역 텍스트 자동 확대 방지 */
+    body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+    
+    /* 히어로 섹션 - p 태그 */
+    .gym-name {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 17.6px; /* 1.1rem = 17.6px (16px 기준) */
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    .trainer-name {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 19.2px; /* 1.2rem = 19.2px */
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    .hero-core-message p {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 17.6px; /* 1.1rem = 17.6px */
+        line-height: 1.6;
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    /* 문제 제기 섹션 */
+    .problem-list li {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 16.8px; /* 1.05rem = 16.8px */
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    .problem-conclusion {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 18.4px; /* 1.15rem = 18.4px */
+        line-height: 1.6;
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    /* 해결책 섹션 */
+    .target-item {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 16.8px; /* 1.05rem = 16.8px */
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    .solution-summary {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 22.2px; /* calc(1.2rem + 3px) = 19.2px + 3px = 22.2px */
+        line-height: 1.6;
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    /* 가격 섹션 */
+    .price-label {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 14.4px; /* 0.9rem = 14.4px */
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    .price-tax {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 17.6px; /* 1.1rem = 17.6px */
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    .price-breakdown-label {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 16px; /* 1rem = 16px */
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    /* 제한 정보 섹션 */
+    .info-item {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 16.8px; /* 1.05rem = 16.8px */
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    /* 메리트 섹션 */
+    .remaining-seats {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-size: 20.8px; /* 1.3rem = 20.8px */
+        line-height: 1.5;
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    /* 섹션 제목 */
+    .section-title {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    /* 모든 p 태그에 기본 보호 적용 */
+    p {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    /* 버튼 텍스트도 보호 */
+    .btn {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
 }
